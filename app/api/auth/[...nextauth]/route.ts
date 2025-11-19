@@ -53,13 +53,13 @@ export const authOptions = {
         signIn: "/auth/signin",
     },
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user }: any) {
             if (user) {
                 token.id = user.id
             }
             return token
         },
-        async session({ session, token }) {
+        async session({ session, token }: any) {
             if (session.user) {
                 session.user.id = token.id as string
             }
